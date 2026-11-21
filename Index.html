@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Laxmen!</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #16002d, #7800a8, #ff4081);
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: clamp(35px, 8vw, 65px);
+  color: #ffe66d;
+  text-shadow: 0 0 20px #ff00cc;
+  animation: glow 2s infinite alternate;
+}
+
+.name {
+  font-size: 32px;
+  color: #fff;
+  margin-top: 15px;
+  text-shadow: 0 0 15px #ffe66d;
+}
+
+.cake {
+  font-size: 110px;
+  margin: 20px;
+  animation: bounce 2s infinite;
+}
+
+.subtitle {
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 10px;
+}
+
+button {
+  background: #ffe66d;
+  color: #57005e;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 28px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ffb6e6;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#surprise {
+  display: none;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid #ffe66d;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 25px;
+  max-width: 450px;
+  animation: appear 1s ease;
+}
+
+#surprise h2 {
+  color: #ffe66d;
+  margin-bottom: 15px;
+}
+
+#surprise p {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.balloon {
+  position: fixed;
+  bottom: -100px;
+  font-size: 45px;
+  animation: float 9s linear infinite;
+}
+
+.balloon:nth-child(1) { left: 10%; }
+.balloon:nth-child(2) { left: 30%; animation-delay: 2s; }
+.balloon:nth-child(3) { left: 65%; animation-delay: 4s; }
+.balloon:nth-child(4) { left: 85%; animation-delay: 1s; }
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff00cc; }
+  to { text-shadow: 0 0 30px #ffe66d; }
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float {
+  to { transform: translateY(-120vh) rotate(25deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+
+<div class="container">
+
+  <h1>HAPPY BIRTHDAY!</h1>
+
+  <div class="name">LAXMEN LAMAYO ❤️</div>
+
+  <div class="cake">🎂</div>
+
+  <div class="subtitle">
+    Special day na nimo karon! 😂
+    <br>
+    Ready na ba ka sa imong surprise?
+  </div>
+
+  <button onclick="openSurprise()">
+    CLICK ME! 🎁
+  </button>
+
+  <div id="surprise">
+    <h2>HAPPY LEGAL AGE! 😂🎉</h2>
+
+    <p>
+      Happy Birthday, Laxmen Lamayo! ❤️
+      <br><br>
+      Sana mabusog ko nimo! HAHAHA! 🤣
+      <br><br>
+      Amping kanunay and enjoy your special day!
+      <br><br>
+      HAPPY YUHUY! 🎊
+      <br><br>
+      God bless you always! ❤️
+    </p>
+  </div>
+
+</div>
+
+<script>
+function openSurprise() {
+  document.getElementById("surprise").style.display = "block";
+
+  for (let i = 0; i < 80; i++) {
+    let confetti = document.createElement("div");
+    confetti.innerHTML = ["🎉","✨","🎊","💖"][
+      Math.floor(Math.random() * 4)
+    ];
+
+    confetti.style.position = "fixed";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = "-30px";
+    confetti.style.fontSize = "25px";
+    confetti.style.zIndex = "10";
+    confetti.style.transition = "transform 4s linear, opacity 4s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.style.transform =
+        "translateY(110vh) rotate(720deg)";
+      confetti.style.opacity = "0";
+    }, 50);
+
+    setTimeout(() => confetti.remove(), 4200);
+  }
+}
+</script>
+
+</body>
+</html>
